@@ -1,4 +1,20 @@
+# December 2018 Update
+
+This is a major rewrite of the previous version, as AChecker now 
+requires PHP7+ and Composer. It uses the `ubuntu:18.04` base image
+instead of the `tutum/lamp` image used previously. 
+
+This project is for local testing purposes only and should 
+NOT BE USED IN A PRODUCTION environment as the security defaults
+are severely lacking. 
+
 # AChecker Docker setup
+
+## Setup MySQL password
+
+The container runs a local instance of MySQL. A default password is set
+in the `debconf.selections` file. Change the password to something of
+your choosing, if desired.
 
 ## Build AChecker Docker image
 
@@ -17,33 +33,6 @@ docker run -d -p 8000:80 -p 3306:3306 --name achecker pixelandpen/achecker
 Open your browser of choice and go to `http://localhost:8000/install`, and
 follow the installation instructions.
 
-### MySQL database info
-
-You will need to retrieve the MySQL admin password for setting up the database connection.
-
-```
-docker logs achecker 
-```
-
-Viewing the docker logs will show something like:
-
-```
-=> An empty or uninitialized MySQL volume is detected in /var/lib/mysql
-=> Installing MySQL ...
-=> Done!
-=> Waiting for confirmation of MySQL service startup
-=> Creating MySQL admin user with random password
-=> Done!
-========================================================================
-You can now connect to this MySQL Server using:
-
-    mysql -uadmin -p0dxosCagrXhb -h<host> -P<port>
-
-    Please remember to change the above password as soon as possible!
-    MySQL user 'root' has no password but only allows local connections
-    ========================================================================
-```
-
-In this example, the user is `admin` and the password is `0dxosCagrXhb`.
-
+The database username is `root` and the password is what you created
+in `debconf.selections`.
 
