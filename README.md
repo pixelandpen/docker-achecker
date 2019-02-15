@@ -30,7 +30,7 @@ docker run -d -p 8000:80 -p 3306:3306 --name achecker pixelandpen/achecker
 
 ## Install AChecker on Docker container
 
-Open your browser of choice and go to `http://localhost:8000/achecker/nstall`, and
+Open your browser of choice and go to `http://localhost:8000/achecker/install`, and
 follow the installation instructions.
 
 The database username is `root` and the password is what you created
