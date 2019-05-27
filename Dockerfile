@@ -45,4 +45,6 @@ RUN composer install
 EXPOSE 80
 EXPOSE 3306
 
+VOLUME /var/lib/mysql
+
 CMD ["/usr/sbin/run-lamp.sh"]
